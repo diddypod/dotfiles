@@ -1,0 +1,25 @@
+{
+    "window.menuBarVisibility": "toggle",
+    "editor.fontSize": 13,
+    "editor.accessibilitySupport": "off",
+    "workbench.statusBar.feedback.visible": false,
+    "breadcrumbs.enabled": true,
+    "window.zoomLevel": -0.5,
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+    "update.enableWindowsBackgroundUpdates": false,
+    "terminal.external.linuxExec": "urxvtc",
+    "terminal.integrated.fontFamily": "Noto Mono for Powerline",
+    "explorer.confirmDragAndDrop": false,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "explorer.confirmDelete": false,
+    "python.jediEnabled": false,
+    "python.linting.pylintEnabled": true,
+    "[shellscript]": {
+        "editor.defaultFormatter": "shakram02.bash-beautify"
+    },
+    "workbench.iconTheme": "material-icon-theme"
+}
