@@ -1,0 +1,270 @@
+[colors]
+background = #222
+background-alt = #444
+foreground = #eee
+foreground-alt = #777
+primary = #ddd
+red = #f22
+
+[bar/bar]
+monitor = eDP1
+width = 100%
+height = 24
+bottom = true
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 2
+
+padding-left = 0
+padding-right = 0
+
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = Source Sans Pro:style=Regular:fontformat=truetype:size=9:antialias=true
+font-1 = SauceCodePro Nerd Font:style=Regular:fontformat=truetype:size=9:antialias=true
+font-2 = Noto Mono for Powerline:style=Regular:fontformat=truetype:size=9:antialias=true
+
+modules-left = date mpsyt player-mpris-tail
+modules-center = i3
+modules-right = cpu memory filesystem xbacklight pulseaudio wlan eth battery powermenu
+
+tray-position = right
+tray-padding = 2
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+
+[module/date]
+type = internal/date
+interval = 5
+
+date =
+date-alt = " %A, %d-%m-%Y"
+
+time = %I:%M %p
+time-alt = %I:%M %p
+
+label = %time% %date%
+label-padding = 3
+
+[module/player-mpris-tail]
+type = custom/script
+exec = ~/.config/polybar/scripts/player-mpris-tail.py -f '%{A1:~/.config/polybar/scripts/player-mpris-tail.py previous:} 玲 %{A} %{A1:~/.config/polybar/scripts/player-mpris-tail.py play-pause:} {icon-reversed} %{A} %{A1:~/.config/polybar/scripts/player-mpris-tail.py next:} 怜 %{A} | {:artist:t15:{artist}:}{:artist: - :}{:t20:{title}:} | {:t30:{filename}:} | {duration}' --icon-playing "" --icon-paused ""
+tail = true
+label = %output%
+click-left = ~/.config/polybar/scripts/player-mpris-tail.py previous
+click-right = ~/.config/polybar/scripts/player-mpris-tail.py next
+click-middle = ~/.config/polybar/scripts/player-mpris-tail.py play-paused
+
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+format-padding = 2
+index-sort = true
+wrapping-scroll = false
+
+; Only show workspaces on the same output as the bar
+;pin-workspaces = true
+
+label-mode-padding = 2
+label-mode-foreground = ${colors.background}
+label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused = 
+label-focused-background = ${colors.background-alt}
+label-focused-underline = ${colors.primary}
+label-focused-padding = 5
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = 
+label-unfocused-padding = 5
+
+; visible = Active workspace on unfocused monitor
+label-visible = 
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = 
+label-urgent-background = ${colors.red}
+label-urgent-padding = 5
+
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = "龍 "
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = ${colors.primary}
+label = %percentage%
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = ${colors.primary}
+label = %gb_used%
+
+[module/filesystem]
+type = internal/fs
+interval = 60
+spacing = 2
+
+mount-0 = /
+mount-1 = /home
+# mount-2 = /mnt/extra
+# mount-3 = /media/Seagate1.5
+
+# label-0 = "root"
+# label-1 = "home"
+# label-2 = "extra"
+# label-3 = "Seagate"
+
+label-mounted = %mountpoint%: %percentage_used%
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.foreground-alt}
+
+[module/xbacklight]
+type = internal/xbacklight
+
+format = <bar>
+
+bar-width = 8
+bar-indicator = 
+bar-indicator-foreground = ${colors.foreground}
+bar-indicator-font = 2
+bar-fill = ─
+bar-fill-font = 2
+bar-fill-foreground = ${colors.primary}
+bar-empty = ─
+bar-empty-font = 2
+bar-empty-foreground = ${colors.foreground-alt}
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = <bar-volume>
+label-volume-foreground = ${root.foreground}
+
+label-muted = 
+label-muted-foreground = ${colors.foreground-alt}
+
+bar-volume-width = 8
+bar-volume-foreground-0 = ${colors.foreground}
+bar-volume-foreground-1 = ${colors.foreground}
+bar-volume-foreground-2 = ${colors.foreground}
+bar-volume-foreground-3 = ${colors.foreground}
+bar-volume-foreground-4 = ${colors.foreground}
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = ${colors.red}
+bar-volume-gradient = false
+bar-volume-indicator = 
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground-alt}
+
+[module/wlan]
+type = internal/network
+interface = wlp19s0
+interval = 3.0
+
+format-connected = <label-connected>
+format-connected-prefix = "直 "
+format-connected-prefix-foreground = ${colors.primary}
+format-connected-underline = ${colors.primary}
+label-connected = %essid%
+
+format-disconnected = <label-disconnected>
+label-disconnected = 睊
+label-disconnected-foreground = ${colors.foreground-alt}
+
+[module/eth]
+type = internal/network
+interface = enp7s0
+interval = 5
+
+label-connected = 
+format-connected-underline = ${colors.primary}
+
+label-disconnected = 
+label-disconnected-foreground = ${colors.foreground-alt}
+
+[module/battery]
+type = internal/battery
+battery = BAT1
+adapter = ACAD
+full-at = 99
+
+time-format = %H:%M
+
+label-charging = %percentage% %time%
+format-charging = <animation-charging> <label-charging>
+format-charging-underline = ${colors.primary}
+
+label-discharging = %percentage% %time% %consumption%
+format-discharging = <animation-discharging> <label-discharging>
+format-discharging-underline = ${colors.red}
+
+label-full = %percentage%
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.foreground-alt}
+format-full-underline = ${self.format-charging-underline}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-framerate = 750
+
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-foreground = ${colors.foreground-alt}
+animation-discharging-framerate = 750
+
+[module/powermenu]
+type = custom/menu
+
+expand-right = false
+
+format-spacing = 1
+format-padding = 5
+
+label-open = ""
+label-open-foreground = ${colors.red}
+label-close = ""
+label-separator = " |"
+label-separator-foreground = ${colors.foreground-alt}
+
+menu-0-0 = " ﰇ"
+menu-0-0-exec = reboot
+menu-0-1 = " ⏼"
+menu-0-1-foreground = ${colors.red}
+menu-0-1-exec = poweroff
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+; vim:ft=dosini

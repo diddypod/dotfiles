@@ -1,0 +1,83 @@
+#!/bin/sh
+
+package="productivity-timer"
+
+worktime=53
+playtime=17
+cycles=0
+cur_cycle=0
+quiet=0
+
+function timer_cycle {
+    echo "Working - $worktime min, $cur_cycle cycles done"
+    notify-send "Timer - Start Working" "$worktime min of work left, $cur_cycle cycles done";
+    sleep $worktime_sec;
+    if test $quiet -eq 0; then
+        ffplay -hide_banner -loglevel panic -autoexit -nodisp $HOME/scripts/assets/ding.mp3;
+    fi
+    echo "Break - $playtime min, $cur_cycle cycles done"
+    notify-send "Timer - Break" "You have $playtime min of break remaining";
+    sleep $playtime_sec;
+    if test $quiet -eq 0; then
+        ffplay -hide_banner -loglevel panic -autoexit -nodisp $HOME/scripts/assets/ding.mp3;
+    fi
+}
+
+if test $# -eq 0;
+then
+    echo "$package - simple CLI baser productivity timer"
+    echo " "
+    echo "$package [options]"
+    echo " "
+    echo "options:"
+    echo "-w,       work cycle in minutes [default 53]"
+    echo "-p,       play cycle in minutes [default 17]"
+    echo "-c,       number of cycles [default unending]"
+    echo "-q,       show the notification silently [default with sound]"
+    exit 1
+fi
+
+while getopts 'w:p:c:q' OPTION; do
+    case "$OPTION" in
+        w)
+            worktime=$OPTARG;
+        ;;
+        p)
+            playtime=$OPTARG;
+        ;;
+        c)
+            cycles=$OPTARG;
+        ;;
+        q)
+            quiet=1;
+        ;;
+        ?)
+            echo "$package - simple CLI baser productivity timer"
+            echo " "
+            echo "$package [options]"
+            echo " "
+            echo "options:"
+            echo "-w,       work cycle in minutes [default 53]"
+            echo "-p,       play cycle in minutes [default 17]"
+            echo "-c,       number of cycles [default unending]"
+            echo "-q,       show the notification silently [default with sound]"
+            exit 1
+        ;;
+    esac
+done
+
+worktime_sec=$(expr $worktime \* 60)
+playtime_sec=$(expr $playtime \* 60)
+
+if test $cycles -eq 0;
+then
+    while true; do
+        timer_cycle;
+        cur_cycle=$(expr $cur_cycle + 1)
+    done
+else
+    while test $cur_cycle -lt $cycles ; do
+        timer_cycle;
+        cur_cycle=$(expr $cur_cycle + 1)
+    done
+fi

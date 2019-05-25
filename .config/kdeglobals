@@ -1,0 +1,5 @@
+[KDE]
+ShowDeleteCommand=true
+
+[PreviewSettings]
+MaximumRemoteSize=0

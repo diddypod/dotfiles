@@ -1,0 +1,77 @@
+#!/bin/sh
+
+package="remind"
+
+hours=0
+minutes=0
+seconds=0
+notif_priority="normal"
+notif_header="Reminder"
+notif_message=""
+quiet=0
+
+if test $# -eq 0;
+then
+    echo "$package - easily set reminder notifications"
+    echo " "
+    echo "$package [options] \"message\""
+    echo " "
+    echo "options:"
+    echo "-h,       specify time in hours [default 0]"
+    echo "-m,       specify time in minutes [default 0]"
+    echo "-s,       specify time in seconds [default 0]"
+    echo "-c,       set notification priority critical [default off]"
+    echo "-H,       set notification header/title [default Reminder]"
+    echo "-q,       show the notification silently [default with sound]"
+    exit 1
+fi
+
+while getopts 'h:m:s:cH:q' OPTION; do
+    case "$OPTION" in
+        h)
+            hours=$OPTARG;
+        ;;
+        m)
+            minutes=$OPTARG;
+        ;;
+        s)
+            seconds=$OPTARG;
+        ;;
+        c)
+            notif_priority="critical"
+        ;;
+        H)
+            notif_header=$OPTARG;
+        ;;
+        q)
+            quiet=1;
+        ;;
+        ?)
+            echo "$package - easily set reminder notifications"
+            echo " "
+            echo "$package [options] \"message\""
+            echo " "
+            echo "options:"
+            echo "-h,       specify time in hours [default 0]"
+            echo "-m,       specify time in minutes [default 0]"
+            echo "-s,       specify time in seconds [default 0]"
+            echo "-c,       set notification priority critical [default off]"
+            echo "-H,       set notification header/title [default Reminder]"
+            echo "-q,       show the notification silently [default with sound]"
+            exit 1
+        ;;
+    esac
+done
+
+shift "$(($OPTIND -1))"
+notif_message="$@"
+
+sleeptime=$(expr $(expr $hours \* 3600) + $(expr $minutes \* 60) + $(expr $seconds))
+
+(
+    sleep $sleeptime;
+    notify-send -u $notif_priority $notif_header "$notif_message";
+    if test $quiet -eq 0; then
+        ffplay -hide_banner -loglevel panic -autoexit -nodisp $HOME/scripts/assets/ding.mp3;
+    fi
+) &

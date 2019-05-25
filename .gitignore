@@ -1,0 +1,29 @@
+/*
+/*/
+
+*.log
+
+!.gitignore
+!.xinitrc
+!.Xresources
+!.xbindkeysrc
+!.zshrc
+!packages.txt
+!README.md
+
+!.config/
+!scripts/
+!screenshots/
+
+.config/Code\ -\ OSS/**
+.config/GIMP/**
+.config/mpd/**
+.config/mpv/**
+.config/mps-youtube/**
+.config/pulse*/**
+.config/Signal/**
+.config/google-chrome/**
+
+!.config/Code\ -\ OSS/User/settings.json
+!.config/mpd/mpd.conf
+!.config/mps-youtube/config

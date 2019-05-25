@@ -1,0 +1,56 @@
+Height 768=732
+State=AAAA/wAAAAD9AAAAAwAAAAAAAAC0AAACrPwCAAAAAvsAAAAWAGYAbwBsAGQAZQByAHMARABvAGMAawAAAAAA/////wAAAAIA////+wAAABQAcABsAGEAYwBlAHMARABvAGMAawEAAAAwAAACrAAAAEYA////AAAAAQAAAAAAAAAA/AIAAAAB+wAAABAAaQBuAGYAbwBEAG8AYwBrAAAAAAD/////AAAAAgD///8AAAADAAAAAAAAAAD8AQAAAAH7AAAAGAB0AGUAcgBtAGkAbgBhAGwARABvAGMAawAAAAAA/////wAAAAIA////AAAEmAAAAqwAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAACAAAAAQAAABYAbQBhAGkAbgBUAG8AbwBsAEIAYQByAQAAAAD/////AAAAAAAAAAA=
+Width 1366=1362
+
+[CompactMode]
+FontFamily=Source Sans Pro
+FontSize=8
+FontWeight=50
+UseSystemFont=false
+
+[DetailsMode]
+FontWeight=50
+
+[General]
+ConfirmClosingMultipleTabs=false
+EditableUrl=true
+FilterBar=true
+ShowCopyMoveMenu=true
+ShowFullPath=true
+ShowFullPathInTitlebar=true
+ShowZoomSlider=false
+Version=200
+ViewPropsTimestamp=2019,2,6,13,27,9
+
+[IconsMode]
+FontFamily=Source Sans Pro
+FontWeight=50
+UseSystemFont=false
+
+[KPropertiesDialog]
+Height 768=536
+Width 1366=460
+
+[MainWindow]
+Height 768=724
+State=AAAA/wAAAAD9AAAAAwAAAAAAAAB+AAAClvwCAAAAAvsAAAAWAGYAbwBsAGQAZQByAHMARABvAGMAawAAAAAA/////wAAAAIA////+wAAABQAcABsAGEAYwBlAHMARABvAGMAawEAAAA+AAAClgAAAEYA////AAAAAQAAAAAAAAAA/AIAAAAB+wAAABAAaQBuAGYAbwBEAG8AYwBrAAAAAAD/////AAAAAgD///8AAAADAAAAAAAAAAD8AQAAAAH7AAAAGAB0AGUAcgBtAGkAbgBhAGwARABvAGMAawAAAAAA/////wAAAAIA////AAACGAAAApYAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAACAAAAAQAAABYAbQBhAGkAbgBUAG8AbwBsAEIAYQByAQAAAAD/////AAAAAAAAAAA=
+ToolBarsMovable=Disabled
+Width 1366=668
+
+[Open-with settings]
+CompletionMode=1
+History=
+
+[PreviewSettings]
+Plugins=appimagethumbnail,audiothumbnail,comicbookthumbnail,djvuthumbnail,exrthumbnail,directorythumbnail,imagethumbnail,jpegthumbnail,kraorathumbnail,windowsexethumbnail,windowsimagethumbnail,opendocumentthumbnail,svgthumbnail
+
+[Search]
+Location=Everywhere
+
+[SettingsDialog]
+Height 768=519
+Width 1366=583
+
+[ViewPropertiesDialog]
+Height 768=404
+Width 1366=323

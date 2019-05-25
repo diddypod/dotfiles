@@ -1,0 +1,59 @@
+!! URXVT
+URxvt.perl-ext-common: default,matcher,confirm-paste,searchable-scrollback
+
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt.scrollWithBuffer: true
+
+! scroll back to the bottom on keypress
+URxvt.scrollTtyKeypress: true
+
+! font is Powerline Noto
+URxvt.font: xft:Noto Mono for Powerline:size=9
+
+! open URLs on click
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+
+! colors
+! special
+URxvt.depth:		    32
+
+URxvt.foreground:           #c0c0c0
+URxvt.background:           [75]#000000
+URxvt.cursorColor:          #f0f0f0
+URxvt.scrollColor:          #595959
+URxvt.scrollstyle:          plain
+URxvt.scrollBar_right:      true
+URxvt.troughColor:          #333333
+
+! black
+*.color0:               #333333
+*.color8:               #595959
+
+! red
+*.color1:               #ff6666
+*.color9:               #ff3333
+
+! green
+*.color2:               #8cff66
+*.color10:              #66ff33
+
+! yellow
+*.color3:               #cca300
+*.color11:              #ffcc00
+
+! blue
+*.color4:               #4d94ff
+*.color12:              #80b3ff
+
+! magenta
+*.color5:               #ff99bb
+*.color13:              #ff6699
+
+! cyan
+*.color6:               #4dffc3
+*.color14:              #80ffd4
+
+! white
+*.color7:               #cccccc
+*.color15:              #f2f2f2
