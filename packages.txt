@@ -18,6 +18,7 @@ code
 compton
 cool-retro-term
 coreutils
+cowsay
 cryptsetup
 dart
 device-mapper
@@ -38,13 +39,16 @@ filesystem
 findutils
 firefox
 flex
+fortune-mod
 gawk
 gcc
 gcc-libs
+geeqie
 gettext
 gimp
 git
 glibc
+google-chrome
 gparted
 grep
 gtop
@@ -84,7 +88,6 @@ mps-youtube-git
 mpv
 mpv-mpris
 nano
-ncdc
 ncmpcpp
 neofetch
 nerd-fonts-source-code-pro
@@ -114,6 +117,7 @@ pulseaudio
 pulseaudio-alsa
 pulseaudio-bluetooth
 python-pip
+qbittorrent
 qt5ct
 redshift-minimal
 refind-efi
@@ -140,6 +144,7 @@ ttf-droid
 ttf-freefont
 ttf-liberation
 ttf-opensans
+tty-clock
 udiskie
 udisks2
 unzip
@@ -191,6 +196,7 @@ xorg-xrefresh
 xorg-xset
 xorg-xwininfo
 xpub
+yadm
 yay-bin
 zip
 zsh
