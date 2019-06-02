@@ -1,0 +1,42 @@
+[23:42:24] gtkgui: HandBrake 1.2.2 (2019032800) - Linux x86_64 - https://handbrake.fr
+Cannot load libnvidia-encode.so.1
+Cannot load libnvidia-encode.so.1
+Cannot load libnvidia-encode.so.1
+Cannot load libnvidia-encode.so.1
+[23:42:24] hb_init: starting libhb thread
+[23:42:24] hb_init: starting libhb thread
+[23:42:24] hb_init: starting libhb thread
+[23:42:24] gtkgui: Failed to read presets file, initailizing new presets...
+[23:42:55] CPU: Intel(R) Core(TM) i3-5010U CPU @ 2.10GHz
+[23:42:55]  - Intel microarchitecture Broadwell
+[23:42:55]  - logical processor count: 4
+[23:42:55] hb_scan: path=/home/diddypod/videos/TRIM_20190529_121903.mp4, title_index=0
+udfread ERROR: ECMA 167 Volume Recognition failed
+disc.c:323: failed opening UDF image /home/diddypod/videos/TRIM_20190529_121903.mp4
+disc.c:424: error opening file BDMV/index.bdmv
+disc.c:424: error opening file BDMV/BACKUP/index.bdmv
+[23:42:55] bd: not a bd - trying as a stream/file instead
+libdvdnav: Using dvdnav version 6.0.0
+libdvdread: Encrypted DVD support unavailable.
+libdvdread:DVDOpenFileUDF:UDFFindFile /VIDEO_TS/VIDEO_TS.IFO failed
+libdvdread:DVDOpenFileUDF:UDFFindFile /VIDEO_TS/VIDEO_TS.BUP failed
+libdvdread: Can't open file VIDEO_TS.IFO.
+libdvdnav: vm: failed to read VIDEO_TS.IFO
+[23:42:55] dvd: not a dvd - trying as a stream/file instead
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from '/home/diddypod/videos/TRIM_20190529_121903.mp4':
+  Metadata:
+    major_brand     : mp42
+    minor_version   : 0
+    compatible_brands: isommp42
+    creation_time   : 2019-05-29T06:49:04.000000Z
+    com.android.version: 8.1.0
+    com.android.manufacturer: Xiaomi
+    com.android.model: Redmi Note 4
+  Duration: 00:00:23.66, start: 0.000000, bitrate: 869 kb/s
+    Stream #0:0(eng): Video: h264 (Baseline) (avc1 / 0x31637661), yuv420p(tv, smpte170m/bt470bg/smpte170m), 1080x1920, 865 kb/s, SAR 1:1 DAR 9:16, 32.84 fps, 32 tbr, 90k tbn, 180k tbc (default)
+    Metadata:
+      creation_time   : 2019-05-29T06:49:04.000000Z
+      handler_name    : VideoHandle
+[23:42:55] scan: decoding previews for title 1
+[23:42:55] scan: 10 previews, 1080x1920, 32.836 fps, autocrop = 0/0/0/0, aspect 1:1.78, PAR 1:1
+[23:42:55] libhb: scan thread found 1 valid title(s)
