@@ -66,6 +66,7 @@ iw
 jdk-openjdk
 jfsutils
 jsoncpp
+kdeconnect
 less
 lib32-gcc-libs
 libmaxminddb
@@ -127,6 +128,7 @@ rofi-greenclip
 rsync
 rxvt-unicode
 s-nail
+scrcpy
 sed
 shadow
 signal

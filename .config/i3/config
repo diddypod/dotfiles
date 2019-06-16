@@ -96,7 +96,11 @@ bindsym $mod+Shift+minus move scratchpad
 
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
-bindsym $mod+minus scratchpad show
+bindsym $mod+\ scratchpad show
+
+# Show specific windows
+bindsym $mod+minus [instance="signal"] scratchpad show
+bindsym $mod+equal [instance="scrcpy"] scratchpad show
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -238,10 +242,15 @@ bindsym Control+Print exec /home/diddypod/.config/i3/screenshots.sh -s
 bindsym Shift+Print exec /home/diddypod/.config/i3/screenshots.sh -f
 bindsym Control+Shift+Print exec /home/diddypod/.config/i3/screenshots.sh -sf
 
-# open Signal in scratchpad, at a set size
+# open Signal in scratchpad, at a set size at the center
 for_window [class="Signal"] move scratchpad
 for_window [class="Signal"] move absolute position center
 for_window [class="Signal"] resize set 800 600
+
+# open scrcpy in scratchpad, at a set size to the right
+for_window [class="scrcpy"] move scratchpad
+for_window [class="scrcpy"] move position 948 5
+for_window [class="scrcpy"] resize set 413 733
 
 # Polybar, the workspace and statusbar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh

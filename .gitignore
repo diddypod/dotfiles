@@ -23,6 +23,7 @@
 .config/pulse*/**
 .config/Signal/**
 .config/google-chrome/**
+.config/kdeconnect/
 
 !,config/Code\ -\ OSS/User/
 .config/Code\ -\ OSS/User/**
