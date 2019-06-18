@@ -13,8 +13,25 @@ fi
 shift "$(($OPTIND -1))"
 convert_path="$@"
 
-echo $convert_path
+echo "Creating new export directory at $convert_path/x265"
+mkdir "$convert_path/x265"
 
-for filename in $convert_path/*; do
-    echo $filename;
+for filepath in "$convert_path/"*; do
+    if [ ! -z "$(grep "directory" <<< $(file -ib "$filepath"))" ];  then
+        dir_name=`basename "$filepath"`;
+        if test $dir_name != "x265"; then
+            read -p "Found a directory - $dir_name. Convert its contents? (y/N): " recurse
+            if test $recurse == "y"; then
+                convert-x265 $filepath
+            fi
+        fi
+    fi
+    if [ ! -z "$(grep "video" <<< $(file -ib "$filepath"))" ];  then
+        filename=`basename "$filepath"`;
+        echo "Converting $filename to x265/$filename"
+        ffmpeg -hide_banner -loglevel error -stats -i "$filepath" -c:v libx265 -x265-params log-level=error -crf 28 -c:a aac -b:a 128k "$convert_path/x265/$filename"
+        echo "Done"
+    fi
 done
+
+echo "Converted all videos at $convert_path"
