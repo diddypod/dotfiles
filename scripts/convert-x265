@@ -1,0 +1,20 @@
+#!/bin/sh
+
+package="convert-x265"
+
+if test $# -eq 0;
+then
+    echo "$package - convert all videos in a folder to x265"
+    echo " "
+    echo "$package path/to/folder"
+    exit 1
+fi
+
+shift "$(($OPTIND -1))"
+convert_path="$@"
+
+echo $convert_path
+
+for filename in $convert_path/*; do
+    echo $filename;
+done
