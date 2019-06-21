@@ -6,21 +6,60 @@ if test $# -eq 0;
 then
     echo "$package - convert all videos in a folder to x265"
     echo " "
-    echo "$package path/to/folder"
+    echo "$package [options] path/to/folder"
+    echo " "
+    echo "options:"
+    echo "-d,       delete files after conversion"
+    echo "-r,       recursively convert subfolders"
     exit 1
 fi
 
+recurseoverride="n"
+recurse="n"
+delete="n"
+
+while getopts 'dr' OPTION; do
+    case "$OPTION" in
+        d)
+            delete="y";
+        ;;
+        r)
+            recurseoverride="y";
+        ;;
+        ?)
+            echo "$package - convert all videos in a folder to x265"
+            echo " "
+            echo "$package [options] path/to/folder"
+            echo " "
+            echo "options:"
+            echo "-d,       delete files after conversion"
+            echo "-r,       recursively convert subfolders"
+            exit 1
+        ;;
+    esac
+done
+
 shift "$(($OPTIND -1))"
-convert_path="$@"
+convertpath="$@"
 
-echo "Creating new export directory at $convert_path/x265"
-mkdir "$convert_path/x265"
+echo "Creating new export directory at $convertpath/x265"
+mkdir "$convertpath/x265"
 
-for filepath in "$convert_path/"*; do
+for filepath in "$convertpath/"*; do
     if [ ! -z "$(grep "directory" <<< $(file -ib "$filepath"))" ];  then
-        dir_name=`basename "$filepath"`;
-        if test $dir_name != "x265"; then
-            read -p "Found a directory - $dir_name. Convert its contents? (y/N): " recurse
+        dirname=`basename "$filepath"`;
+        if test $dirname != "x265"; then
+            if test $recurseoverride != "y"; then
+                read -p "Found a directory - $dirname. Convert its contents? (y/N): " recurse
+            fi
+            if test $recurseoverride == "y"; then
+                if test $delete == "y"; then
+                    convert-x265 -dr $filepath
+                fi
+                if test $delete != "y"; then
+                    convert-x265 -r $filepath
+                fi
+            fi
             if test $recurse == "y"; then
                 convert-x265 $filepath
             fi
@@ -29,9 +68,14 @@ for filepath in "$convert_path/"*; do
     if [ ! -z "$(grep "video" <<< $(file -ib "$filepath"))" ];  then
         filename=`basename "$filepath"`;
         echo "Converting $filename to x265/$filename"
-        ffmpeg -hide_banner -loglevel error -stats -i "$filepath" -c:v libx265 -x265-params log-level=error -crf 28 -c:a aac -b:a 128k "$convert_path/x265/$filename"
+        ffmpeg -hide_banner -loglevel error -stats -i "$filepath" -c:v libx265 -x265-params log-level=error -crf 28 -c:a aac -b:a 128k "$convertpath/x265/$filename"
+        notify-send "Converted $filename to x265/$filename"
+        if test $delete == "y"; then
+            echo "Deleting $filename"
+            rm "$filepath"
+        fi
         echo "Done"
     fi
 done
 
-echo "Converted all videos at $convert_path"
+echo "Converted all videos at $convertpath"

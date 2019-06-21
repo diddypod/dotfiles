@@ -4,6 +4,7 @@ aic94xx-firmware
 alsa-utils
 android-file-transfer
 android-sdk-platform-tools
+android-studio
 autoconf
 automake
 bash
@@ -63,7 +64,7 @@ iotop
 iproute2
 iputils
 iw
-jdk-openjdk
+jdk8-openjdk
 jfsutils
 jsoncpp
 kdeconnect
@@ -140,6 +141,7 @@ systemd-numlockontty
 systemd-sysvcompat
 tar
 texinfo
+todotxt
 trash-cli
 ttf-adobe-source-fonts
 ttf-droid
