@@ -131,6 +131,7 @@ s-nail
 scrcpy
 sed
 shadow
+signal
 sl
 strace
 sudo
