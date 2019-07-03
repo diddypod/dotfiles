@@ -124,6 +124,7 @@ redshift-minimal
 refind-efi
 reiserfsprogs
 rofi
+rofi-calc
 rofi-greenclip
 rsync
 rxvt-unicode

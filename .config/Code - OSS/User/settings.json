@@ -1,6 +1,5 @@
 {
     "window.menuBarVisibility": "toggle",
-    "editor.fontSize": 13,
     "editor.accessibilitySupport": "off",
     "workbench.statusBar.feedback.visible": false,
     "breadcrumbs.enabled": true,
@@ -21,5 +20,7 @@
     "[shellscript]": {
         "editor.defaultFormatter": "shakram02.bash-beautify"
     },
+    "editor.fontSize": 13,
+    "editor.cursorStyle": "block",
     "workbench.iconTheme": "material-icon-theme"
 }
