@@ -4,6 +4,7 @@ aic94xx-firmware
 alsa-utils
 android-file-transfer
 android-sdk-platform-tools
+android-studio
 autoconf
 automake
 bash
