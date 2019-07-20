@@ -49,6 +49,7 @@ gettext
 gimp
 git
 glibc
+gnu-free-fonts
 google-chrome
 gparted
 grep
@@ -146,7 +147,6 @@ todotxt
 trash-cli
 ttf-adobe-source-fonts
 ttf-droid
-ttf-freefont
 ttf-liberation
 ttf-opensans
 tty-clock
