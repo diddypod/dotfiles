@@ -69,6 +69,8 @@ plugins=(git web-search sudo)
 
 source $ZSH/oh-my-zsh.sh
 
+source ~/.alias
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"

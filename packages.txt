@@ -15,6 +15,7 @@ bluez
 bluez-utils
 broadcom-wl
 bzip2
+calibre
 code
 compton
 cool-retro-term
@@ -33,6 +34,7 @@ dstat
 dunst
 e2fsprogs
 elinks
+exa
 fakeroot
 feh
 file
