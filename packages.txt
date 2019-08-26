@@ -5,6 +5,7 @@ alsa-utils
 android-file-transfer
 android-sdk-platform-tools
 android-studio
+arandr
 autoconf
 automake
 bash
@@ -12,7 +13,6 @@ bcm43142a0-firmware
 binutils
 bison
 bluez
-bluez-utils
 broadcom-wl
 bzip2
 calibre
@@ -108,6 +108,7 @@ pacman-contrib
 pacmixer
 paper-icon-theme
 patch
+pavucontrol
 pciutils
 perl
 pkgconf
@@ -120,7 +121,6 @@ procps-ng
 psmisc
 pulseaudio
 pulseaudio-alsa
-pulseaudio-bluetooth
 python-pip
 qbittorrent
 qt5ct

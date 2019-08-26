@@ -12,6 +12,9 @@ numlockx &
 
 udiskie &
 
+sleep 3
+exec ~/.screenlayout/layout.sh &
+
 ~/.fehbg &
 
 exec i3
