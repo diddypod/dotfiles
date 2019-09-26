@@ -95,6 +95,7 @@ mpv-mpris
 nano
 ncmpcpp
 neofetch
+neovim
 nerd-fonts-source-code-pro
 netctl
 nginx
